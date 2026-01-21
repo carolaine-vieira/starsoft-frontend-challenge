@@ -1,9 +1,10 @@
+// External dependencies
 import React from 'react';
-import { forwardRef, memo } from 'react';
+
+// Internal dependencies
 import { ButtonProps } from './Button.types';
 
-// eslint-disable-next-line react/display-name
-const CTAButton = forwardRef<HTMLButtonElement, ButtonProps>((props) => {
+const GeneralButton = (props: ButtonProps) => {
 	const isDisabled = props.disabled || props.isLoading;
 
 	return (
@@ -24,6 +25,6 @@ const CTAButton = forwardRef<HTMLButtonElement, ButtonProps>((props) => {
 			{props.children}
 		</button>
 	);
-});
+};
 
-export default memo(CTAButton);
+export const Button = React.memo(GeneralButton);
