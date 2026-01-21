@@ -1,9 +1,10 @@
 @use './variables' as variables;
 
 body {
-  font-size: variables.$base;
+	font-size: variables.$base;
 }
 
-h2, .h2 {
-  font-size: variables.$h2_lg;
+h2,
+.h2 {
+	font-size: variables.$h2_lg;
 }

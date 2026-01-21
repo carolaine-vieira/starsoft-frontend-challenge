@@ -1,30 +1,30 @@
 {
-  "folders": [
-    {
-      "name": "Application",
-      "path": "./",
-    },
-  ],
-  "extensions": {
-    "recommendations": [
-      // Share etiding configurations like identation, end of line, charset and more
-      "editorconfig.editorconfig",
-      // Code linting
-      "dbaeumer.vscode-eslint",
-      // .env syntax support
-      "mikestead.dotenv",
-      // Syntax highlighting for PostCSS
-      "csstools.postcss",
-      // TailwindCSS Intellisense
-      "bradlc.vscode-tailwindcss",
-    ],
-  },
-  "settings": {
-    // Enable formating when saving files
-    "editor.formatOnSave": true,
+	"folders": [
+		{
+			"name": "Application",
+			"path": "./",
+		},
+	],
+	"extensions": {
+		"recommendations": [
+			// Share etiding configurations like identation, end of line, charset and more
+			"editorconfig.editorconfig",
+			// Code formatting
+			"esbenp.prettier-vscode",
+			// Code linting
+			"dbaeumer.vscode-eslint",
+			// .env syntax support
+			"mikestead.dotenv",
+		],
+	},
+	"settings": {
+		// Enable formating when saving files
+		"editor.formatOnSave": true,
+		// Change default code formatter to Prettier
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
 
-    // HTML auto formatting options
-    "html.format.maxPreserveNewLines": 1,
-    "html.format.wrapAttributes": "preserve",
-  },
+		// HTML auto formatting options
+		"html.format.maxPreserveNewLines": 1,
+		"html.format.wrapAttributes": "preserve",
+	},
 }

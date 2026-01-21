@@ -1,15 +1,15 @@
 @use './mixins' as mixins;
 
 // Colors
-$orange: #FF8310;
+$orange: #ff8310;
 $zeus: #232323;
-$mirage:#191A20;
+$mirage: #191a20;
 $iridium: #393939;
-$grey: #CCCCCC;
-$white: #FFFFFF;
+$grey: #cccccc;
+$white: #ffffff;
 
 // Headings
-$base: mixins.rem(12); 
+$base: mixins.rem(12);
 $h2_lg: mixins.rem(18);
 
 // Border Radius

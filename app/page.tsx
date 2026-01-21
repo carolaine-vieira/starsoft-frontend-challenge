@@ -1,7 +1,7 @@
-import { HomeLayout } from "../layouts/home/HomeLayout";
+import { HomeLayout } from '../layouts/home/HomeLayout';
 
 async function Home() {
-  return <HomeLayout products={[]} />;
+	return <HomeLayout products={[]} />;
 }
 
 export default Home;

@@ -1,3 +1,3 @@
 export interface ButtonCartProps {
-  className?: string;
+	className?: string;
 }

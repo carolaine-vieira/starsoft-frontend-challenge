@@ -1,5 +1,5 @@
-import { Product } from "../../types/product";
+import { Product } from '../../types/product';
 
 export interface HomeLayoutProps {
-  products: Product[];
+	products: Product[];
 }

@@ -1,6 +1,6 @@
-type ButtonVariant = "primary" | "loading";
+type ButtonVariant = 'primary' | 'loading';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: ButtonVariant;
-  isLoading?: boolean;
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+	variant?: ButtonVariant;
+	isLoading?: boolean;
 }
