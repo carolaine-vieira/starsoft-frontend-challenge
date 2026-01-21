@@ -1,10 +1,16 @@
 // External dependencies
 import React from 'react';
-import { HomeLayoutProps } from './HomeLayout.types';
 
 // Internal dependencies
-// import Styles from "./Home.module.css";
+import { HomeLayoutProps } from './HomeLayout.types';
+import { ListProduct } from '@/components/list-product/ListProduct';
 
-export const HomeLayout = ({ products }: HomeLayoutProps) => {
-	return <main id="content" className="main-content"></main>;
+export const HomeLayout = ({ initialData }: HomeLayoutProps) => {
+	return (
+		<main id="content" className="main-content">
+			<h1 className="sr-only">Starsoft Marketplace</h1>
+
+			<ListProduct initialData={initialData} />
+		</main>
+	);
 };

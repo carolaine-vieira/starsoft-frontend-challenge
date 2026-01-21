@@ -4,9 +4,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 // Internal dependencies
+import Styles from './Header.module.scss';
 import { HeaderProps } from './Header.types';
 import { ButtonCart } from '../button-cart/ButtonCart';
-import Styles from './Header.module.scss';
 
 export const Header = ({ className = '' }: HeaderProps) => {
 	return (

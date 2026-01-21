@@ -1,0 +1,16 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.section {
+	padding: rem(189) 0;
+}
+
+.wrapper {
+	display: grid;
+	justify-content: space-between;
+	gap: rem(25);
+
+	@media (min-width: 1200px) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}

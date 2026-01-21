@@ -22,7 +22,9 @@
 			"@/*": ["./src/*"],
 			"@/types/*": ["./types/*"],
 			"@/store/*": ["./store/*"],
-			"@/components/*": ["./components/*"]
+			"@/components/*": ["./components/*"],
+			"@/layouts/*": ["./layouts/*"],
+			"@/services/*": ["./services/*"]
 		}
 	},
 	"include": [

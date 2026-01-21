@@ -8,10 +8,10 @@ import { ReduxProvider } from './redux';
 
 export default function Providers({ children }: { children: React.ReactNode }) {
 	return (
-		<Layout>
-			<ReactQueryProvider>
-				<ReduxProvider>{children}</ReduxProvider>
-			</ReactQueryProvider>
-		</Layout>
+		<ReactQueryProvider>
+			<ReduxProvider>
+				<Layout>{children}</Layout>
+			</ReduxProvider>
+		</ReactQueryProvider>
 	);
 }

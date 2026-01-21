@@ -1,5 +1,4 @@
 // External dependencies
-import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 
 // Internal dependencies
@@ -12,10 +11,6 @@ const poppins = Poppins({
 	subsets: ['latin'],
 	display: 'swap',
 });
-
-export const metadata: Metadata = {
-	title: 'Starsoft',
-};
 
 export default function RootLayout({
 	children,
