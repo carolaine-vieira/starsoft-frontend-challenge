@@ -22,6 +22,7 @@
       "@/*": ["./src/*"],
       "@/types/*": ["./types/*"],
       "@/store/*": ["./store/*"],
+      "@/components/*": ["./components/*"],
     }
   },
   "include": [

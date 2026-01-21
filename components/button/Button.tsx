@@ -1,7 +1,7 @@
 import React from "react";
 import { forwardRef, memo } from "react";
 
-const CTAButton = forwardRef<HTMLButtonElement, CTAButtonProps>((props) => {
+const CTAButton = forwardRef<HTMLButtonElement, ButtonProps>((props) => {
   const isDisabled = props.disabled || props.isLoading;
 
   return (

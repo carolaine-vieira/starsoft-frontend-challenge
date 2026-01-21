@@ -1,0 +1,13 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(9);
+}
+
+.span {
+  font-size: rem(20);
+  color: $white;
+}

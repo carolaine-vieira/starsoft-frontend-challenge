@@ -1,0 +1,13 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.header {
+  background-color: $zeus;
+  border-bottom: 1px solid rgba($white, 0.21);
+  padding: rem(33) rem(41);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}

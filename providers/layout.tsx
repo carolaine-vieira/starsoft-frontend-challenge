@@ -1,6 +1,9 @@
 // External dependencies
 import React from "react";
 
+// Internal dependencies
+import { Header } from "@/components/header/Header";
+
 export interface LayoutProps {
   className?: string;
   children: React.ReactNode;
@@ -9,7 +12,7 @@ export interface LayoutProps {
 export const Layout = ({ className = "", children }: LayoutProps) => {
   return (
     <div className={`global-layout min-h-dvh flex flex-col ${className}`}>
-      <header className="bg-gray-500">header</header>
+      <Header />
 
       {children}
 

@@ -1,7 +1,6 @@
 @use './variables' as variables;
 
 * {
-	
 	font-smoothing: antialiased;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -9,6 +8,7 @@
 }
 
 body {
+	margin: 0;
 	font-family: var(--font-poppins);
 	background-color: variables.$zeus;
 	color: variables.$white;
@@ -24,4 +24,16 @@ embed,
 iframe,
 object {
 	max-width: 100%;
+}
+
+.container {
+	max-width: 1455px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+button {
+	border: none;
+	background: none;
+	cursor: pointer;
 }
