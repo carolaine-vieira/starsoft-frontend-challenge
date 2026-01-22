@@ -2,7 +2,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 // Internal dependencies
-import { CartChangeQuantity, CartItemState, CartState } from '@/types/cart';
+import { CartChangeQuantity, CartItemState, CartState } from '../shared/types/cart';
 
 const initialState: CartState = {
 	cart: [],

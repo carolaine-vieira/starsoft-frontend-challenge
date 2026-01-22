@@ -20,12 +20,12 @@
 		],
 		"paths": {
 			"@/*": ["./src/*"],
-			"@/types/*": ["./types/*"],
+			"@/types/*": ["./shared/types/*"],
 			"@/store/*": ["./store/*"],
 			"@/components/*": ["./components/*"],
 			"@/layouts/*": ["./layouts/*"],
 			"@/services/*": ["./services/*"],
-			"@/hooks/*": ["./hooks/*"]
+			"@/hooks/*": ["./shared/hooks/*"]
 		}
 	},
 	"include": [

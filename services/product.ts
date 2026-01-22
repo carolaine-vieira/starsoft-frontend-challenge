@@ -1,5 +1,5 @@
-import { GetProductsResponse, Product, ProductQueryArgs } from '@/types/product';
-import { toQueryParams } from '../utils/helpers/object';
+import { GetProductsResponse, Product, ProductQueryArgs } from '../shared/types/product';
+import { toQueryParams } from '../shared/utils/helpers/object';
 
 const ENDPOINT = `${process.env.NEXT_PUBLIC_API_URL}/products`;
 

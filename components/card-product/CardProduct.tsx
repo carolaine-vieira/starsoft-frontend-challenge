@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Styles from './CardProduct.module.scss';
 import { CardProductProps } from './CardProduct.types';
 import { Button } from '@/components/button/Button';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../shared/hooks/redux';
 import { addToCart, changeProductQuantity } from '@/store/cart.slice';
 
 export const CardProduct = ({ className = '', ...product }: CardProductProps) => {

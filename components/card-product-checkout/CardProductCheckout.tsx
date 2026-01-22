@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import Styles from './CardProductCheckout.module.scss';
 import { CardProductCheckoutProps } from './CardProductCheckout.types';
 import { Button } from '@/components/button/Button';
-import { useAppDispatch } from '@/hooks/redux';
+import { useAppDispatch } from '../../shared/hooks/redux';
 import { changeProductQuantity, removeItem } from '@/store/cart.slice';
 
 export const CardProductCheckout = ({

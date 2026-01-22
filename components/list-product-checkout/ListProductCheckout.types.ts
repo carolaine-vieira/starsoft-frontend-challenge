@@ -1,4 +1,4 @@
-import { CartItemState } from '@/types/cart';
+import { CartItemState } from '../../shared/types/cart';
 
 export interface ListProductCheckoutProps {
 	className?: string;
