@@ -8,5 +8,5 @@ export interface CustomButtonProps {
 }
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-	customProps: CustomButtonProps;
+	customProps?: CustomButtonProps;
 }

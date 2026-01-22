@@ -1,32 +1,55 @@
 // External dependencies
-import React from 'react';
 import Image from 'next/image';
 
 // Internal dependencies
 import Styles from './CardProduct.module.scss';
 import { CardProductProps } from './CardProduct.types';
+import { Button } from '@/components/button/Button';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { addToCart, changeProductQuantity } from '@/store/cart.slice';
 
-export const CardProduct = ({
-	className = '',
-	image,
-	name,
-	description,
-	price,
-	id,
-}: CardProductProps) => {
+export const CardProduct = ({ className = '', ...product }: CardProductProps) => {
+	const { cart } = useAppSelector((state) => state.cart);
+	const dispatch = useAppDispatch();
+
+	// Get the state item of product
+	const productInCart = cart.find((cartProduct) => cartProduct.product.id === product.id);
+
+	const handleAddToCart = () => {
+		if (productInCart) {
+			// If product is already on the cart just increment the quantity
+			dispatch(
+				changeProductQuantity({
+					productId: product.id,
+					ammount: 1,
+				}),
+			);
+		} else {
+			dispatch(
+				addToCart({
+					product,
+					quantity: 1,
+				}),
+			);
+		}
+	};
+
 	return (
 		<article className={`card-product ${Styles.card} ${className}`}>
 			<Image
-				src={image}
-				alt={`Product ${name} image`}
+				src={product.image}
+				alt={`Product ${product.name} image`}
 				width={400}
 				height={400}
 				className={Styles.image}
 			/>
 
-			<h3 dangerouslySetInnerHTML={{ __html: name }} className={`h2 ${Styles.name}`} />
+			<h3 dangerouslySetInnerHTML={{ __html: product.name }} className={`h2 ${Styles.name}`} />
 
-			<p className={Styles.description} dangerouslySetInnerHTML={{ __html: description }} />
+			<p
+				className={Styles.description}
+				dangerouslySetInnerHTML={{ __html: product.description }}
+			/>
 
 			<div className={Styles.price}>
 				<Image
@@ -36,8 +59,16 @@ export const CardProduct = ({
 					height={29}
 					quality={100}
 				/>
-				<span className={Styles.price_text}>{Math.trunc(price)} ETH</span>
+				<span className={Styles.price_text}>{Math.trunc(product.price)} ETH</span>
 			</div>
+
+			<Button
+				customProps={{ size: 'sm' }}
+				onClick={handleAddToCart}
+				className={Styles.button_add_cart}
+			>
+				{productInCart ? `(${productInCart.quantity}) na mochila` : 'Comprar'}
+			</Button>
 		</article>
 	);
 };

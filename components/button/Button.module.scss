@@ -10,7 +10,6 @@
 		color 0.4s ease-in-out;
 	color: $white;
 	text-align: center;
-	padding: rem(30);
 
 	&.primary {
 		background-color: $orange;
@@ -30,6 +29,7 @@
 
 	&.sm {
 		font-size: rem(16);
+		padding: rem(22);
 		text-transform: uppercase;
 	}
 
@@ -43,6 +43,7 @@
 	}
 
 	@media (min-width: 768px) {
-		min-width: 400px;
+		width: -webkit-fill-available;
+		max-width: 400px;
 	}
 }
