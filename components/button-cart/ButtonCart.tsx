@@ -1,16 +1,39 @@
+'use client';
+
 // External dependencies
-import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 // Internal dependencies
-import { ButtonCartProps } from './ButtonCart.types';
 import Styles from './ButtonCart.module.scss';
+import { ButtonCartProps } from './ButtonCart.types';
+import { useAppSelector } from '@/hooks/redux';
+import { useAppDispatch } from '@/hooks/redux';
+import { toggleSidebar } from '@/store/sidebar.slice';
 
 export const ButtonCart = ({ className = '' }: ButtonCartProps) => {
+	const { cart } = useAppSelector((state) => state.cart);
+	const { isOpen } = useAppSelector((state) => state.sidebar);
+	const dispatch = useAppDispatch();
+
 	return (
-		<button className={`${Styles.button} ${className}`}>
-			<Image src={'./bag.svg'} alt="Bag icon" width={33} height={33} />
-			<span className={Styles.span}>0</span>
+		<button
+			aria-expanded={isOpen}
+			title={isOpen ? 'Close' : 'Open'}
+			aria-label={isOpen ? 'Close checkout sidebar' : 'Open checkout sidebar'}
+			className={`${Styles.button} ${className}`}
+			onClick={() => dispatch(toggleSidebar())}
+		>
+			<Image src={'./images/bag.svg'} alt="Bag icon" width={33} height={33} />
+			<motion.span
+				key={cart.length}
+				className={Styles.span}
+				initial={{ scale: 0 }}
+				animate={{ scale: [0, 1.2, 1], opacity: [0, 1, 1] }}
+				transition={{ duration: 0.4, ease: 'easeOut' }}
+			>
+				{cart.length}
+			</motion.span>
 		</button>
 	);
 };

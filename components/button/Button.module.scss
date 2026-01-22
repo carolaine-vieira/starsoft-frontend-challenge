@@ -38,10 +38,6 @@
 		padding: rem(30);
 	}
 
-	&:enabled:hover {
-		box-shadow: -29px 0px 9.8px 0px #0000001a;
-	}
-
 	@media (min-width: 768px) {
 		width: -webkit-fill-available;
 		max-width: 400px;

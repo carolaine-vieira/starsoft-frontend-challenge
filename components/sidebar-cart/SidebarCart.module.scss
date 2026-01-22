@@ -1,0 +1,77 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+$width: 679px;
+$toggle_button_size: 60;
+
+.sidebar {
+	background-color: $zeus;
+	position: fixed;
+	top: 0;
+	right: -$width;
+	width: $width;
+	height: 100dvh;
+	z-index: 992;
+	padding: rem(30) rem(30) rem(50) rem(30);
+	transition: right 0.4s ease-in-out;
+	overflow-y: auto;
+
+	h2 {
+		margin: 0 auto;
+		padding-right: rem($toggle_button_size);
+	}
+
+	&.open {
+		right: 0;
+		box-shadow: -29px 0px 9.8px 0px #0000001a;
+	}
+}
+
+.header {
+	display: flex;
+	align-items: center;
+}
+
+.button_toggle {
+	width: rem($toggle_button_size) !important;
+	height: rem($toggle_button_size);
+	padding: 0 !important;
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	border-radius: 100px !important;
+	background-color: #373737 !important;
+
+	&:enabled:hover {
+		background-color: $iridium !important;
+	}
+}
+
+.total_sum {
+	text-transform: uppercase;
+	font-size: rem(24);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: 700;
+	margin-top: rem(50);
+
+	span {
+		display: flex;
+		align-items: center;
+		gap: rem(10);
+	}
+
+	p {
+		text-align: center;
+		width: 100%;
+	}
+}
+
+.overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(black, 0.3);
+	transition: background 0.4s ease-in-out;
+	z-index: 991;
+}

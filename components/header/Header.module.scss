@@ -5,6 +5,16 @@
 	background-color: $zeus;
 	border-bottom: 1px solid rgba($white, 0.21);
 	padding: rem(33) rem(41);
+	position: sticky;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 99;
+	transition: padding 0.4s ease-in-out;
+
+	&.sticked {
+		padding: rem(18) rem(41);
+	}
 }
 
 .wrapper {

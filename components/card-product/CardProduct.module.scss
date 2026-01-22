@@ -37,11 +37,11 @@
 	align-items: center;
 	gap: rem(10);
 	margin: rem(20) 0 0 0;
-}
 
-.price_text {
-	font-weight: 600;
-	font-size: rem(20);
+	span {
+		font-weight: 600;
+		font-size: rem(20);
+	}
 }
 
 .button_add_cart {

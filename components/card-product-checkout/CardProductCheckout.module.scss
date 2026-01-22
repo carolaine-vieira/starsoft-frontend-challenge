@@ -1,0 +1,93 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.card {
+	border-radius: $border-radius;
+	background-color: $iridium;
+	padding: rem(19.5) rem(30);
+	transition: box-shadow 0.4s ease-in-out;
+	display: flex;
+	gap: rem(31);
+
+	&:hover {
+		box-shadow:
+			0 6px 12px -2px rgba($mirage, 0.15),
+			0 4px 6px -4px rgba($mirage, 0.1);
+	}
+}
+
+.image {
+	flex: 0 0 auto;
+
+	img {
+		background-color: #22232c;
+		border-radius: $border-radius;
+	}
+}
+
+.right_wrapper {
+	flex-grow: 0;
+}
+
+.name {
+	margin: 0;
+}
+
+.description {
+	margin: rem(10) 0 0 0;
+}
+
+.price {
+	display: flex;
+	align-items: center;
+	gap: rem(10);
+	margin: rem(20) 0 0 0;
+}
+
+.price_text {
+	font-weight: 600;
+	font-size: rem(20);
+}
+
+.buttons_wrapper {
+	margin-top: rem(16);
+}
+
+.input_container {
+	position: relative;
+	min-width: rem(115);
+	border-radius: $border-radius;
+	background-color: $zeus;
+	display: inline-flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: rem(10);
+	padding: rem(6);
+	font-weight: rem(14);
+
+	button {
+		border-radius: $border-radius;
+		display: flex;
+		color: $white;
+		width: rem(30);
+		height: rem(30);
+		display: grid;
+		place-items: center;
+
+		&:hover {
+			background-color: $iridium;
+		}
+
+		&:active {
+			background-color: $orange;
+		}
+	}
+}
+
+.button_decrease {
+	left: 0;
+}
+
+.button_increase {
+	right: 0;
+}

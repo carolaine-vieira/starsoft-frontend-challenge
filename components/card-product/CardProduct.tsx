@@ -44,7 +44,7 @@ export const CardProduct = ({ className = '', ...product }: CardProductProps) =>
 				className={Styles.image}
 			/>
 
-			<h3 dangerouslySetInnerHTML={{ __html: product.name }} className={`h2 ${Styles.name}`} />
+			<h3 dangerouslySetInnerHTML={{ __html: product.name }} className={Styles.name} />
 
 			<p
 				className={Styles.description}
@@ -53,13 +53,13 @@ export const CardProduct = ({ className = '', ...product }: CardProductProps) =>
 
 			<div className={Styles.price}>
 				<Image
-					src={`/elipse-icon.png`}
+					src={`/images/ellipse-icon.svg`}
 					alt={`Currency icon`}
 					width={29}
 					height={29}
 					quality={100}
 				/>
-				<span className={Styles.price_text}>{Math.trunc(product.price)} ETH</span>
+				<span>{Math.trunc(product.price)} ETH</span>
 			</div>
 
 			<Button

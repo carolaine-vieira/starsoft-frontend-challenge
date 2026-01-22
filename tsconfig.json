@@ -24,7 +24,8 @@
 			"@/store/*": ["./store/*"],
 			"@/components/*": ["./components/*"],
 			"@/layouts/*": ["./layouts/*"],
-			"@/services/*": ["./services/*"]
+			"@/services/*": ["./services/*"],
+			"@/hooks/*": ["./hooks/*"]
 		}
 	},
 	"include": [
