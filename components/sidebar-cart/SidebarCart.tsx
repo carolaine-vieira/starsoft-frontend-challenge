@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import Styles from './SidebarCart.module.scss';
 import { ButtonCartProps } from './SidebarCart.types';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { toggleSidebar } from '@/store/sidebar.slice';
+import { closeSidebar } from '@/store/sidebar.slice';
 import { Button } from '@/components/button/Button';
 import { ListProductCheckout } from '@/components/list-product-checkout/ListProductCheckout';
 
@@ -28,7 +28,7 @@ export const SidebarCart = ({ className = '' }: ButtonCartProps) => {
 
 	return (
 		<>
-			{isOpen && <div className={Styles.overlay} />}
+			{isOpen && <div className={Styles.overlay} onClick={() => dispatch(closeSidebar())} />}
 
 			<aside
 				id="checkout-sidebar"
@@ -40,10 +40,10 @@ export const SidebarCart = ({ className = '' }: ButtonCartProps) => {
 					<Button
 						aria-controls="checkout-sidebar"
 						aria-expanded={isOpen}
-						title={isOpen ? 'Close' : 'Open'}
-						aria-label={isOpen ? 'Close checkout sidebar' : 'Open checkout sidebar'}
+						title={'Close'}
+						aria-label={'Close checkout sidebar'}
 						customProps={{ variant: 'gray', size: 'sm' }}
-						onClick={() => dispatch(toggleSidebar())}
+						onClick={() => dispatch(closeSidebar())}
 						className={Styles.button_toggle}
 					>
 						<Image src={'./images/arrow-left.svg'} alt="" width={30} height={30} />

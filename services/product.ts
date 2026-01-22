@@ -15,7 +15,7 @@ const DEFAULT_QUERY: ProductQueryArgs = {
  */
 export async function getProducts(query?: ProductQueryArgs): Promise<GetProductsResponse> {
 	const params = toQueryParams({ ...DEFAULT_QUERY, ...query });
-	const res = await fetch(`${ENDPOINT}?${params}`);
+	const res = await fetch(`${ENDPOINT}?${params}`, { cache: 'no-store' });
 
 	if (!res.ok) {
 		throw new Error('Failed to fetch products.');

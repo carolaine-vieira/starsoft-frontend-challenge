@@ -1,0 +1,11 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: rgba($white, 0.44);
+	margin-top: rem(189);
+	padding: rem(25);
+}

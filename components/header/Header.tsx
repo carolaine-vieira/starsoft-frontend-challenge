@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 // Internal dependencies
 import Styles from './Header.module.scss';
 import { HeaderProps } from './Header.types';
-import { ButtonCart } from '../button-cart/ButtonCart';
+import { ButtonCart } from '@/components/button-cart/ButtonCart';
 
 export const Header = ({ className = '' }: HeaderProps) => {
 	const [isSticked, setIsSticked] = useState(false);
