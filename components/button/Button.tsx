@@ -1,30 +1,24 @@
-// External dependencies
-import React from 'react';
-
 // Internal dependencies
+import Styles from './Button.module.scss';
 import { ButtonProps } from './Button.types';
+import { Spinner } from '@/components/spinner/Spinner';
 
-const GeneralButton = (props: ButtonProps) => {
-	const isDisabled = props.disabled || props.isLoading;
+export const Button = (props: ButtonProps) => {
+	const { customProps, ...rest } = props;
+	const isDisabled = props.disabled || customProps.isLoading;
 
 	return (
 		<button
 			type="button"
 			disabled={isDisabled}
 			aria-disabled={isDisabled}
-			aria-busy={props.isLoading}
-			className={''}
-			{...props}
+			aria-busy={customProps.isLoading}
+			{...rest}
+			className={`${Styles.button} ${customProps.size ? Styles[customProps.size] : Styles.sm} ${customProps.variant ? Styles[customProps.variant] : Styles.primary} ${props.className}`}
 		>
-			{props.isLoading && (
-				<span role="status" aria-live="polite" className="sr-only">
-					Loading
-				</span>
-			)}
+			{customProps.isLoading && <Spinner />}
 
 			{props.children}
 		</button>
 	);
 };
-
-export const Button = React.memo(GeneralButton);

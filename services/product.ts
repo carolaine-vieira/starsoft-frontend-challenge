@@ -1,4 +1,4 @@
-import { Product, ProductQueryArgs } from '@/types/product';
+import { GetProductsResponse, Product, ProductQueryArgs } from '@/types/product';
 import { toQueryParams } from '../utils/helpers/object';
 
 const ENDPOINT = `${process.env.NEXT_PUBLIC_API_URL}/products`;
@@ -13,9 +13,7 @@ const DEFAULT_QUERY: ProductQueryArgs = {
 /**
  * Get products from the API.
  */
-export async function getProducts(
-	query?: ProductQueryArgs,
-): Promise<{ products: Product[]; total: number }> {
+export async function getProducts(query?: ProductQueryArgs): Promise<GetProductsResponse> {
 	const params = toQueryParams({ ...DEFAULT_QUERY, ...query });
 	const res = await fetch(`${ENDPOINT}?${params}`);
 
@@ -28,6 +26,7 @@ export async function getProducts(
 	return {
 		products: formatProducts(data.products),
 		total: data.count,
+		currentPage: query?.page ?? 1,
 	};
 }
 

@@ -1,6 +1,12 @@
-type ButtonVariant = 'primary' | 'loading';
+type ButtonVariant = 'primary' | 'gray';
+type ButtonSize = 'sm' | 'lg';
+
+export interface CustomButtonProps {
+	variant?: ButtonVariant;
+	size?: ButtonSize;
+	isLoading?: boolean;
+}
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-	variant?: ButtonVariant;
-	isLoading?: boolean;
+	customProps: CustomButtonProps;
 }

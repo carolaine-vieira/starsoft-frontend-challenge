@@ -1,6 +1,7 @@
 @use './variables' as variables;
 
 * {
+	font-family: var(--font-poppins);
 	font-smooth: antialiased;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -9,7 +10,6 @@
 
 body {
 	margin: 0;
-	font-family: var(--font-poppins);
 	background-color: variables.$zeus;
 	color: variables.$white;
 }
@@ -35,7 +35,14 @@ object {
 button {
 	border: none;
 	background: none;
-	cursor: pointer;
+
+	&:enabled {
+		cursor: pointer;
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+	}
 }
 
 .sr-only {

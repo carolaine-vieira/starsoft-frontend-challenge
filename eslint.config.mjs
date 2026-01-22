@@ -25,6 +25,7 @@ export default defineConfig([
 			'@typescript-eslint/no-explicit-any': 'warn',
 			'@typescript-eslint/no-var-requires': 'off',
 			'@typescript-eslint/no-empty-interface': 'off',
+			'react/react-in-jsx-scope': 'off',
 			'react-hooks/exhaustive-deps': 'off',
 		},
 	},

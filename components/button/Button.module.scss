@@ -1,0 +1,48 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.button {
+	display: block;
+	border-radius: $border_radius;
+	font-weight: 700;
+	transition:
+		background-color 0.4s ease-in-out,
+		color 0.4s ease-in-out;
+	color: $white;
+	text-align: center;
+	padding: rem(30);
+
+	&.primary {
+		background-color: $orange;
+
+		&:enabled:hover {
+			background-color: $iridium;
+		}
+	}
+
+	&.gray {
+		background-color: $iridium;
+
+		&:enabled:hover {
+			background-color: $orange;
+		}
+	}
+
+	&.sm {
+		font-size: rem(16);
+		text-transform: uppercase;
+	}
+
+	&.lg {
+		font-size: rem(20);
+		padding: rem(30);
+	}
+
+	&:enabled:hover {
+		box-shadow: -29px 0px 9.8px 0px #0000001a;
+	}
+
+	@media (min-width: 768px) {
+		min-width: 400px;
+	}
+}

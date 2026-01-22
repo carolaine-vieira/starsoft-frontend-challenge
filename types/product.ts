@@ -13,3 +13,9 @@ export interface ProductQueryArgs {
 	sortBy?: 'name' | 'brand' | 'id' | 'price';
 	orderBy?: 'ASC' | 'DESC';
 }
+
+export interface GetProductsResponse {
+	products: Product[];
+	total: number;
+	currentPage: number;
+}
