@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Styles from './CardProduct.module.scss';
 import { CardProductProps } from './CardProduct.types';
 import { Button } from '@/components/button/Button';
-import { useAppDispatch, useAppSelector } from '../../shared/hooks/redux';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { addToCart, changeProductQuantity } from '@/store/cart.slice';
 
 export const CardProduct = ({ className = '', ...product }: CardProductProps) => {
@@ -39,8 +39,8 @@ export const CardProduct = ({ className = '', ...product }: CardProductProps) =>
 			<Image
 				src={product.image}
 				alt={`Product ${product.name} image`}
-				width={400}
-				height={400}
+				width={300}
+				height={300}
 				className={Styles.image}
 			/>
 
@@ -52,13 +52,7 @@ export const CardProduct = ({ className = '', ...product }: CardProductProps) =>
 			/>
 
 			<div className={Styles.price}>
-				<Image
-					src={`/images/ellipse-icon.svg`}
-					alt={`Currency icon`}
-					width={29}
-					height={29}
-					quality={100}
-				/>
+				<Image src={`/images/ellipse-icon.svg`} alt={`Currency icon`} width={29} height={29} />
 				<span>{Math.trunc(product.price)} ETH</span>
 			</div>
 

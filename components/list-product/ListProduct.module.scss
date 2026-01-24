@@ -9,6 +9,7 @@
 	display: grid;
 	justify-content: space-between;
 	gap: rem(25);
+	list-style: none;
 
 	@media (min-width: 1200px) {
 		grid-template-columns: repeat(4, 1fr);

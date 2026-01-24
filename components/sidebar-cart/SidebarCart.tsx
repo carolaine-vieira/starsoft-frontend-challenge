@@ -2,17 +2,20 @@
 
 // External dependencies
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 // Internal dependencies
 import Styles from './SidebarCart.module.scss';
 import { ButtonCartProps } from './SidebarCart.types';
-import { useAppDispatch, useAppSelector } from '../../shared/hooks/redux';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { closeSidebar } from '@/store/sidebar.slice';
+import { setCart } from '@/store/cart.slice';
 import { Button } from '@/components/button/Button';
 import { ListProductCheckout } from '@/components/list-product-checkout/ListProductCheckout';
 
 export const SidebarCart = ({ className = '' }: ButtonCartProps) => {
+	const [isCheckoutComplete, setIsCheckoutComplete] = useState(false);
+
 	const { cart } = useAppSelector((state) => state.cart);
 	const { isOpen } = useAppSelector((state) => state.sidebar);
 	const dispatch = useAppDispatch();
@@ -22,13 +25,36 @@ export const SidebarCart = ({ className = '' }: ButtonCartProps) => {
 		return accumulator + currentItem.product.price * currentItem.quantity;
 	}, 0);
 
+	const handleCompleteCheckout = () => {
+		setIsCheckoutComplete(true);
+		dispatch(setCart([]));
+
+		// Reset checkout state after 2 seconds
+		/* istanbul ignore next */
+		setTimeout(() => {
+			setIsCheckoutComplete(false);
+		}, 2000);
+	};
+
 	useEffect(() => {
 		document.body.style.overflow = isOpen ? 'hidden' : 'auto';
 	}, [isOpen]);
 
 	return (
 		<>
-			{isOpen && <div className={Styles.overlay} onClick={() => dispatch(closeSidebar())} />}
+			{/* Overlay */}
+			{isOpen && (
+				<div data-testid="overlay" className={Styles.overlay}>
+					<button
+						type="button"
+						className="stretched-link"
+						aria-label="Fechar sidebar de checkout"
+						aria-controls="checkout-sidebar"
+						aria-expanded={isOpen}
+						onClick={() => dispatch(closeSidebar())}
+					/>
+				</div>
+			)}
 
 			<aside
 				id="checkout-sidebar"
@@ -58,7 +84,7 @@ export const SidebarCart = ({ className = '' }: ButtonCartProps) => {
 				{/* Sidebar Footer */}
 				<div className={Styles.total_sum}>
 					{totalPrice > 0 ? (
-						<>
+						<div data-testid="total-price">
 							<b>Total</b>
 							<span>
 								<Image
@@ -66,15 +92,28 @@ export const SidebarCart = ({ className = '' }: ButtonCartProps) => {
 									alt={`Currency icon`}
 									width={29}
 									height={29}
-									quality={100}
 								/>
 								{totalPrice} ETH
 							</span>
-						</>
+						</div>
 					) : (
-						<p>Carrinho vazio</p>
+						<p data-testid="empty-cart-message">Mochila vazia</p>
 					)}
 				</div>
+
+				{/* Complete Checkout Button */}
+				<Button
+					onClick={handleCompleteCheckout}
+					className={Styles.button_checkout}
+					disabled={cart.length === 0 || isCheckoutComplete}
+					title={
+						cart.length === 0
+							? 'Adicione produtos na mochila para finalizar a compra'
+							: undefined
+					}
+				>
+					{isCheckoutComplete ? 'Compra finalizada!' : 'Finalizar compra'}
+				</Button>
 			</aside>
 		</>
 	);

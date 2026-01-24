@@ -50,11 +50,14 @@ $toggle_button_size: 60;
 .total_sum {
 	text-transform: uppercase;
 	font-size: rem(24);
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
 	font-weight: 700;
 	margin-top: rem(50);
+
+	& > div {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 
 	span {
 		display: flex;
@@ -74,4 +77,9 @@ $toggle_button_size: 60;
 	background: rgba(black, 0.3);
 	transition: background 0.4s ease-in-out;
 	z-index: 991;
+}
+
+.button_checkout {
+	max-width: unset !important;
+	margin-top: rem(70);
 }

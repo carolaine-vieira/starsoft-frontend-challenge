@@ -4,15 +4,19 @@ import { ListProductProps } from './ListProduct.types';
 import { CardProduct } from '@/components/card-product/CardProduct';
 
 export const ListProduct = ({ className = '', products }: ListProductProps) => {
+	if (products.length === 0) return <></>;
+
 	return (
-		<section className={`product-list ${Styles.section} ${className}`}>
+		<section data-testid="product-list" className={`product-list ${Styles.section} ${className}`}>
 			<h2 className="sr-only">Products list</h2>
 
-			<div className={`product-list_wrapper container ${Styles.wrapper}`}>
+			<ul className={`product-list_wrapper container ${Styles.wrapper}`}>
 				{products.map((product) => (
-					<CardProduct key={product.id} {...product} />
+					<li key={product.id}>
+						<CardProduct {...product} />
+					</li>
 				))}
-			</div>
+			</ul>
 		</section>
 	);
 };

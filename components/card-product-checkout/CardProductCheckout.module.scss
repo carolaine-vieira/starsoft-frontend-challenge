@@ -51,6 +51,9 @@
 
 .buttons_wrapper {
 	margin-top: rem(16);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .input_container {
@@ -61,9 +64,9 @@
 	display: inline-flex;
 	justify-content: space-between;
 	align-items: center;
-	gap: rem(10);
-	padding: rem(6);
-	font-weight: rem(14);
+	gap: rem(12);
+	padding: rem(9) rem(6);
+	font-weight: 600;
 
 	button {
 		border-radius: $border-radius;
@@ -73,6 +76,7 @@
 		height: rem(30);
 		display: grid;
 		place-items: center;
+		font-weight: 400;
 
 		&:hover {
 			background-color: $iridium;
@@ -90,4 +94,19 @@
 
 .button_increase {
 	right: 0;
+}
+
+.button_delete {
+	width: rem(43);
+	height: rem(43);
+	padding: 0 !important;
+	border-radius: 100% !important;
+
+	&:hover {
+		background-color: $zeus !important;
+	}
+
+	&:active {
+		background-color: red !important;
+	}
 }

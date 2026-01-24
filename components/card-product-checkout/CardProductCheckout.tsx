@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 import Styles from './CardProductCheckout.module.scss';
 import { CardProductCheckoutProps } from './CardProductCheckout.types';
 import { Button } from '@/components/button/Button';
-import { useAppDispatch } from '../../shared/hooks/redux';
-import { changeProductQuantity, removeItem } from '@/store/cart.slice';
+import { useAppDispatch } from '@/hooks/redux';
+import { changeProductQuantity, deleteItem } from '@/store/cart.slice';
 
 export const CardProductCheckout = ({
 	className = '',
@@ -49,7 +49,6 @@ export const CardProductCheckout = ({
 						alt={`Currency icon`}
 						width={29}
 						height={29}
-						quality={100}
 					/>
 					<span className={Styles.price_text}>{Math.trunc(product.price)} ETH</span>
 				</div>
@@ -58,6 +57,7 @@ export const CardProductCheckout = ({
 					<div className={Styles.input_container}>
 						<button
 							className={Styles.button_decrease}
+							aria-label="Diminuir quantidade do produto"
 							onClick={() =>
 								dispatch(
 									changeProductQuantity({
@@ -82,6 +82,7 @@ export const CardProductCheckout = ({
 
 						<button
 							className={Styles.button_increase}
+							aria-label="Aumentar quantidade do produto"
 							onClick={() =>
 								dispatch(
 									changeProductQuantity({
@@ -94,6 +95,20 @@ export const CardProductCheckout = ({
 							+
 						</button>
 					</div>
+
+					<Button
+						className={Styles.button_delete}
+						customProps={{ size: 'sm' }}
+						onClick={() => dispatch(deleteItem({ productId: product.id }))}
+						aria-label="Deletar produto da mochila"
+					>
+						<Image
+							src={`/images/trash-bin.svg`}
+							alt={`Currency icon`}
+							width={19}
+							height={19}
+						/>
+					</Button>
 				</div>
 			</div>
 		</motion.article>

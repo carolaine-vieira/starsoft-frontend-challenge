@@ -18,14 +18,16 @@
 				"name": "next"
 			}
 		],
+		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*"],
+			"@/*": ["./*"],
 			"@/types/*": ["./shared/types/*"],
 			"@/store/*": ["./store/*"],
 			"@/components/*": ["./components/*"],
 			"@/layouts/*": ["./layouts/*"],
 			"@/services/*": ["./services/*"],
-			"@/hooks/*": ["./shared/hooks/*"]
+			"@/hooks/*": ["./shared/hooks/*"],
+			"@/utils/*": ["./shared/utils/*"]
 		}
 	},
 	"include": [

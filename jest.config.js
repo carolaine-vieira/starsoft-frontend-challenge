@@ -7,9 +7,9 @@ const createJestConfig = nextJest({
 const customJestConfig = {
 	collectCoverage: true,
 	collectCoverageFrom: [
-		'components/**/*.{ts,tsx}', // All TS/TSX files
-		'layouts/**/*.{ts,tsx}', // All TS/TSX files
-		'providers/**/*.{ts,tsx}', // All TS/TSX files
+		'components/**/*.{ts,tsx}',
+		'layouts/**/*.{ts,tsx}',
+		'store/**/*.{ts,tsx}',
 		'!**/*.d.ts', // Ignore declaration files
 		'!**/*.types.ts', // Ignore declaration files
 		'!**/index.ts', // Ignore barrel files
@@ -17,7 +17,15 @@ const customJestConfig = {
 	],
 	testEnvironment: 'jest-environment-jsdom',
 	setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+	rootDir: './',
 	moduleNameMapper: {
+		'^@/types/(.*)$': '<rootDir>/shared/types/$1',
+		'^@/utils/(.*)$': '<rootDir>/shared/utils/$1',
+		'^@/hooks/(.*)$': '<rootDir>/shared/hooks/$1',
+		'^@/store/(.*)$': '<rootDir>/store/$1',
+		'^@/components/(.*)$': '<rootDir>/components/$1',
+		'^@/layouts/(.*)$': '<rootDir>/layouts/$1',
+		'^@/services/(.*)$': '<rootDir>/services/$1',
 		'^@/(.*)$': '<rootDir>/$1',
 	},
 };

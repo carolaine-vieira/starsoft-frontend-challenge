@@ -1,25 +1,31 @@
+// External dependencies
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+
+// Internal dependencies
 import { ButtonLoadMore } from './ButtonLoadMore';
+
+const customProps = {
+	label: 'Carregar mais',
+	labelLoading: 'Buscando produtos',
+	labelDisabled: 'Você já viu tudo',
+	loadingProgress: '10%',
+};
 
 describe('ButtonLoadMore', () => {
 	describe('Rendering', () => {
 		it('renders with correct label', () => {
-			render(<ButtonLoadMore>Click me</ButtonLoadMore>);
-			expect(screen.getByRole('button', { name: /click me/i })).toBeInTheDocument();
+			render(<ButtonLoadMore customProps={customProps} />);
+			expect(screen.getByRole('button', { name: /Carregar mais/i })).toBeInTheDocument();
 		});
-	});
 
-	describe('Interaction', () => {
-		it('calls onClick when clicked', async () => {
-			const user = userEvent.setup();
-			const onClick = jest.fn();
+		it('renders with correct loading label when loading', () => {
+			render(<ButtonLoadMore customProps={{ ...customProps, isLoading: true }} />);
+			expect(screen.getByRole('button', { name: /Buscando produtos/i })).toBeInTheDocument();
+		});
 
-			render(<ButtonLoadMore onClick={onClick}>Click me</ButtonLoadMore>);
-
-			await user.click(screen.getByRole('button', { name: /click me/i }));
-
-			expect(onClick).toHaveBeenCalledTimes(1);
+		it('renders with correct disabled label when disabled', () => {
+			render(<ButtonLoadMore customProps={{ ...customProps }} disabled />);
+			expect(screen.getByRole('button', { name: /Você já viu tudo/i })).toBeInTheDocument();
 		});
 	});
 });

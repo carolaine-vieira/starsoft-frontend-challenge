@@ -7,8 +7,7 @@ import { motion } from 'framer-motion';
 // Internal dependencies
 import Styles from './ButtonCart.module.scss';
 import { ButtonCartProps } from './ButtonCart.types';
-import { useAppSelector } from '../../shared/hooks/redux';
-import { useAppDispatch } from '../../shared/hooks/redux';
+import { useAppSelector, useAppDispatch } from '@/hooks/redux';
 import { toggleSidebar } from '@/store/sidebar.slice';
 
 export const ButtonCart = ({ className = '' }: ButtonCartProps) => {
@@ -19,8 +18,8 @@ export const ButtonCart = ({ className = '' }: ButtonCartProps) => {
 	return (
 		<button
 			aria-expanded={isOpen}
-			title={isOpen ? 'Close' : 'Open'}
-			aria-label={isOpen ? 'Close checkout sidebar' : 'Open checkout sidebar'}
+			title={isOpen ? 'Fechar' : 'Abrir'}
+			aria-label={isOpen ? 'Fechar a sidebar de checkout' : 'Abrir a sidebar de checkout'}
 			className={`${Styles.button} ${className}`}
 			onClick={() => dispatch(toggleSidebar())}
 		>

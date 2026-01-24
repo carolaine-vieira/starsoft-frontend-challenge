@@ -19,7 +19,7 @@ export const Layout = ({ className = '', children }: LayoutProps) => {
 
 			{children}
 
-			<Footer />
+			<Footer text="STARSOFT © TODOS OS DIREITOS RESERVADOS" />
 		</div>
 	);
 };
