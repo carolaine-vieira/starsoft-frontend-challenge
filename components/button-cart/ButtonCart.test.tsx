@@ -1,51 +1,45 @@
 // External dependencies
-import { screen, fireEvent, render } from '@testing-library/react';
-import { ButtonCart } from './ButtonCart';
+import { screen, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 // Internal dependencies
-import { toggleSidebar } from '@/store/sidebar.slice';
+import { ButtonCart } from './ButtonCart';
+import { renderWithProviders } from '@/utils/tests/redux';
 
-// Redux mock initial state
 const preloadedState = {
-	cart: {
-		cart: [],
-	},
 	sidebar: {
 		isOpen: true,
 	},
+	cart: {
+		cart: [],
+	},
 };
 
-// Mock Redux hooks functions
-const mockDispatch = jest.fn();
-const mockSelector = jest.fn();
+const setup = (state = preloadedState) => {
+	const { store } = renderWithProviders(<ButtonCart />, {
+		preloadedState: state,
+	});
 
-// Mock Redux hooks
-jest.mock('@/hooks/redux', () => ({
-	useAppDispatch: () => mockDispatch,
-	useAppSelector: (selector: any) => mockSelector(selector),
-}));
+	return store;
+};
 
 describe('ButtonCart', () => {
 	describe('Rendering', () => {
-		it('has correct title and aria-label attribute when sidebar is closed', () => {
-			mockSelector.mockImplementation((selector) => selector(preloadedState));
-			render(<ButtonCart />);
+		it('shows close labels when sidebar is open', () => {
+			setup();
 
 			const button = screen.getByRole('button');
 			expect(button).toHaveAttribute('title', 'Fechar');
 			expect(button).toHaveAttribute('aria-label', 'Fechar a sidebar de checkout');
 		});
 
-		it('has correct title and aria-label attribute when sidebar is open', () => {
-			mockSelector.mockImplementation((selector) =>
-				selector({
-					...preloadedState,
-					sidebar: {
-						isOpen: false,
-					},
-				}),
-			);
-			render(<ButtonCart />);
+		it('shows open labels when sidebar is closed', () => {
+			setup({
+				...preloadedState,
+				sidebar: {
+					isOpen: false,
+				},
+			});
 
 			const button = screen.getByRole('button');
 			expect(button).toHaveAttribute('title', 'Abrir');
@@ -54,12 +48,13 @@ describe('ButtonCart', () => {
 	});
 
 	describe('Interaction', () => {
-		it('calls toggleSidebar function when clicked', () => {
-			mockSelector.mockImplementation((selector) => selector(preloadedState));
-			render(<ButtonCart />);
+		it('toggles sidebar state when clicked', () => {
+			const store = setup();
 
 			fireEvent.click(screen.getByRole('button'));
-			expect(mockDispatch).toHaveBeenCalledWith(toggleSidebar());
+
+			const state = (store.getState() as typeof preloadedState).sidebar;
+			expect(state.isOpen).toBe(false);
 		});
 	});
 });

@@ -7,7 +7,7 @@ import Styles from './CardProductCheckout.module.scss';
 import { CardProductCheckoutProps } from './CardProductCheckout.types';
 import { Button } from '@/components/button/Button';
 import { useAppDispatch } from '@/hooks/redux';
-import { changeProductQuantity, deleteItem } from '@/store/cart.slice';
+import { changeProductQuantity, deleteItem } from '@/store/cart/slice';
 
 export const CardProductCheckout = ({
 	className = '',

@@ -8,8 +8,8 @@ import { useEffect, useState } from 'react';
 import Styles from './SidebarCart.module.scss';
 import { ButtonCartProps } from './SidebarCart.types';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { closeSidebar } from '@/store/sidebar.slice';
-import { setCart } from '@/store/cart.slice';
+import { closeSidebar } from '@/store/sidebar/slice';
+import { setCart } from '@/store/cart/slice';
 import { Button } from '@/components/button/Button';
 import { ListProductCheckout } from '@/components/list-product-checkout/ListProductCheckout';
 

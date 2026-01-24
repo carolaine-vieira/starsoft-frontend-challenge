@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 import Styles from './ButtonCart.module.scss';
 import { ButtonCartProps } from './ButtonCart.types';
 import { useAppSelector, useAppDispatch } from '@/hooks/redux';
-import { toggleSidebar } from '@/store/sidebar.slice';
+import { toggleSidebar } from '@/store/sidebar/slice';
 
 export const ButtonCart = ({ className = '' }: ButtonCartProps) => {
 	const { cart } = useAppSelector((state) => state.cart);

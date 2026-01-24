@@ -1,6 +1,5 @@
 // External dependencies
 import { screen, fireEvent } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 
 // Internal dependencies
@@ -11,7 +10,7 @@ import { renderWithProviders } from '@/utils/tests/redux';
 const mockProduct = {
 	id: 0,
 	name: 'Test',
-	image: '/images/starsoft.sg',
+	image: '/images/starsoft.svg',
 	price: 132,
 	createdAt: '',
 	description: 'Test description',
