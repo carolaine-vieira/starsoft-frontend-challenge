@@ -1,0 +1,15 @@
+@use '../../styles/variables' as *;
+
+.main {
+	z-index: 1000;
+	background-color: $zeus;
+	position: fixed;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	justify-content: center;
+	align-items: center;
+	width: 100dvw;
+	height: 100dvh;
+}

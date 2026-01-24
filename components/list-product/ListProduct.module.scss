@@ -2,7 +2,19 @@
 @use '../../styles/mixins' as *;
 
 .section {
-	padding: rem(189) 0;
+	padding: rem(40) 0 rem(60) 0;
+
+	@media (min-width: $breakpoint-lg) {
+		padding: rem(40) 0 rem(70) 0;
+	}
+
+	@media (min-width: $breakpoint-lg) {
+		padding: rem(80) 0 rem(100) 0;
+	}
+
+	@media (min-width: $breakpoint-xl) {
+		padding: rem(189) 0;
+	}
 }
 
 .wrapper {
@@ -10,8 +22,17 @@
 	justify-content: space-between;
 	gap: rem(25);
 	list-style: none;
+	padding: 0;
 
-	@media (min-width: 1200px) {
+	@media (min-width: $breakpoint-sm) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (min-width: $breakpoint-lg) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@media (min-width: $breakpoint-xl) {
 		grid-template-columns: repeat(4, 1fr);
 	}
 }

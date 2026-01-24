@@ -61,7 +61,7 @@ export const CardProduct = ({ className = '', ...product }: CardProductProps) =>
 				onClick={handleAddToCart}
 				className={Styles.button_add_cart}
 			>
-				{productInCart ? `(${productInCart.quantity}) na mochila` : 'Comprar'}
+				{productInCart ? 'Adicionado ao carrinho' : 'Comprar'}
 			</Button>
 		</article>
 	);

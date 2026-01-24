@@ -13,6 +13,7 @@
 		color 0.3s ease-in-out;
 	color: $white;
 	text-align: center;
+	width: -webkit-fill-available;
 
 	&:disabled {
 		opacity: 0.6;
@@ -45,8 +46,7 @@
 		padding: rem(30);
 	}
 
-	@media (min-width: 768px) {
-		width: -webkit-fill-available;
+	@media (min-width: $breakpoint-md) {
 		max-width: 400px;
 	}
 }

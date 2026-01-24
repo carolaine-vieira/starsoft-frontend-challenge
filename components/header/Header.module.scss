@@ -4,7 +4,10 @@
 .header {
 	background-color: $zeus;
 	border-bottom: 1px solid rgba($white, 0.21);
-	padding: rem(33) rem(41);
+	padding-left: $padding_sm;
+	padding-right: $padding_sm;
+	padding-top: rem(33);
+	padding-bottom: rem(33);
 	position: sticky;
 	left: 0;
 	top: 0;
@@ -13,7 +16,13 @@
 	transition: padding 0.4s ease-in-out;
 
 	&.sticked {
-		padding: rem(18) rem(41);
+		padding-top: rem(18);
+		padding-bottom: rem(18);
+	}
+
+	@media (min-width: $breakpoint-md) {
+		padding-left: rem(41);
+		padding-right: rem(41);
 	}
 }
 

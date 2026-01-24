@@ -21,6 +21,8 @@
 .image {
 	background-color: #22232c;
 	border-radius: $border-radius;
+	width: 100%;
+	object-fit: cover;
 }
 
 .description {

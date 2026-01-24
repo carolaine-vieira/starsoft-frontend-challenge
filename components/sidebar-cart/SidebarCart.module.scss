@@ -10,6 +10,7 @@ $toggle_button_size: 60;
 	top: 0;
 	right: -$width;
 	width: $width;
+	max-width: 100dvw;
 	height: 100dvh;
 	z-index: 992;
 	padding: rem(30) rem(30) rem(50) rem(30);
@@ -18,7 +19,10 @@ $toggle_button_size: 60;
 
 	h2 {
 		margin: 0 auto;
-		padding-right: rem($toggle_button_size);
+
+		@media (min-width: $breakpoint-md) {
+			padding-right: rem($toggle_button_size);
+		}
 	}
 
 	&.open {
@@ -30,6 +34,7 @@ $toggle_button_size: 60;
 .header {
 	display: flex;
 	align-items: center;
+	gap: rem(20);
 }
 
 .button_toggle {
@@ -41,6 +46,7 @@ $toggle_button_size: 60;
 	justify-content: center;
 	border-radius: 100px !important;
 	background-color: #373737 !important;
+	flex-shrink: 0;
 
 	&:enabled:hover {
 		background-color: $iridium !important;

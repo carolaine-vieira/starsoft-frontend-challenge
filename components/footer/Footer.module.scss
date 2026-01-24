@@ -6,6 +6,10 @@
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	color: rgba($white, 0.44);
-	margin-top: rem(189);
+	margin-top: rem(80);
 	padding: rem(25);
+
+	@media (min-width: $breakpoint-md) {
+		margin-top: rem(189);
+	}
 }

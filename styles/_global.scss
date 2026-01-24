@@ -1,4 +1,5 @@
 @use './variables' as variables;
+@use './mixins' as mixins;
 
 * {
 	font-family: var(--font-poppins);
@@ -12,6 +13,12 @@ body {
 	margin: 0;
 	background-color: variables.$zeus;
 	color: variables.$white;
+
+	.global-layout {
+		& > main {
+			padding: 0 variables.$padding_sm;
+		}
+	}
 }
 
 img,
