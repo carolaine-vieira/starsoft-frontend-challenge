@@ -1,7 +1,9 @@
+// Internal dependencies
+import { Site } from '@/shared/utils/config/site';
 import { GetProductsResponse, Product, ProductQueryArgs } from '../shared/types/product';
-import { toQueryParams } from '../shared/utils/helpers/object';
+import { toQueryParams } from '@/utils/helpers/object';
 
-const ENDPOINT = `${process.env.NEXT_PUBLIC_API_URL}/products`;
+const ENDPOINT = `${Site.API_URL}/products`;
 
 const DEFAULT_QUERY: ProductQueryArgs = {
 	page: 1,
