@@ -52,7 +52,7 @@ describe('CardProduct', () => {
 			expect(state[0].quantity).toBe(1);
 		});
 
-		it('increase product quantity when product is in cart', () => {
+		it('deletes product when product is in cart and reclick on buy button', () => {
 			const store = setup({
 				cart: {
 					cart: [
@@ -67,9 +67,7 @@ describe('CardProduct', () => {
 			fireEvent.click(screen.getByRole('button'));
 			const state = (store.getState() as typeof preloadedState).cart.cart;
 
-			expect(state).toHaveLength(1);
-			expect(state[0].product.id).toBe(mockProduct.id);
-			expect(state[0].quantity).toBe(2);
+			expect(state).toHaveLength(0);
 		});
 	});
 });

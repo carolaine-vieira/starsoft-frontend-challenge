@@ -10,8 +10,9 @@ describe('Footer', () => {
 		it('renders footer with text when passed', () => {
 			render(<Footer text="Footer text" />);
 
-			const button = screen.getByRole('contentinfo', { name: /Footer text/i });
+			const button = screen.getByRole('contentinfo');
 			expect(button).toBeInTheDocument();
+			expect(button).toHaveTextContent('Footer text');
 		});
 	});
 });

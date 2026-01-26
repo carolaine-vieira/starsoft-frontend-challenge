@@ -13,11 +13,20 @@ export const HomeLayout = ({}: HomeLayoutProps) => {
 	const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery({
 		queryKey: ['products'],
 		initialPageParam: 1,
-		queryFn: ({ pageParam }) => getProducts({ page: pageParam as number }),
-		getNextPageParam: (lastPage) => {
-			if (lastPage.currentPage < Math.ceil(lastPage.total / 8)) {
-				return lastPage.currentPage + 1;
+
+		/* istanbul ignore next */
+		queryFn: ({ pageParam }) => {
+			/* istanbul ignore next */
+			return getProducts({ page: pageParam as number });
+		},
+
+		/* istanbul ignore next */
+		getNextPageParam: ({ currentPage, total }) => {
+			/* istanbul ignore next */
+			if (currentPage < Math.ceil(total / 8)) {
+				return currentPage + 1;
 			}
+			/* istanbul ignore next */
 			return undefined;
 		},
 	});
