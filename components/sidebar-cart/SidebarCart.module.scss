@@ -48,8 +48,8 @@ $toggle_button_size: 60;
 	background-color: #373737 !important;
 	flex-shrink: 0;
 
-	&:enabled:hover {
-		background-color: $iridium !important;
+	&:hover {
+		background-color: rgba($white, 0.2) !important;
 	}
 }
 
