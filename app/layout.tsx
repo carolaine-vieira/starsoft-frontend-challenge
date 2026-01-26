@@ -7,7 +7,7 @@ import '../styles/index.scss';
 
 const poppins = Poppins({
 	variable: '--font-poppins',
-	weight: ['400', '600', '700'],
+	weight: ['400', '500', '600', '700'],
 	subsets: ['latin'],
 	display: 'swap',
 });

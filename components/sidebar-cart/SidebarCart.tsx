@@ -63,17 +63,19 @@ export const SidebarCart = ({ className = '' }: ButtonCartProps) => {
 			>
 				{/* Sidebar Header */}
 				<div className={Styles.header}>
-					<Button
-						aria-controls="checkout-sidebar"
-						aria-expanded={isOpen}
-						title={'Close'}
-						aria-label={'Close checkout sidebar'}
-						customProps={{ variant: 'gray', size: 'sm' }}
-						onClick={() => dispatch(closeSidebar())}
-						className={Styles.button_toggle}
-					>
-						<Image src={'./images/arrow-left.svg'} alt="" width={30} height={30} />
-					</Button>
+					{isOpen && (
+						<Button
+							aria-controls="checkout-sidebar"
+							aria-expanded={isOpen}
+							title={'Close'}
+							aria-label={'Close checkout sidebar'}
+							customProps={{ variant: 'gray', size: 'sm' }}
+							onClick={() => dispatch(closeSidebar())}
+							className={Styles.button_toggle}
+						>
+							<Image src={'./images/arrow-left.svg'} alt="" width={30} height={30} />
+						</Button>
+					)}
 
 					<h2 className={Styles.h2}>Mochila de Compras</h2>
 				</div>

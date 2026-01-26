@@ -41,6 +41,8 @@ export const CardProduct = ({ className = '', ...product }: CardProductProps) =>
 				alt={`Product ${product.name} image`}
 				width={300}
 				height={300}
+				placeholder="blur"
+				blurDataURL="/images/placeholder.jpg"
 				className={Styles.image}
 			/>
 
