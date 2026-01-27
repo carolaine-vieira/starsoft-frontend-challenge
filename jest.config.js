@@ -10,6 +10,7 @@ const customJestConfig = {
 		'components/**/*.{ts,tsx}',
 		'layouts/**/*.{ts,tsx}',
 		'store/**/*.{ts,tsx}',
+		'**/*.{test,spec}.{ts,tsx}',
 		'!**/*.d.ts', // Ignore declaration files
 		'!**/*.types.ts', // Ignore declaration files
 		'!**/index.ts', // Ignore barrel files
